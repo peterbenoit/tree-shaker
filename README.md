@@ -9,11 +9,11 @@ file system structures.
 
 ## 🚀 Features
 
-- Convert ASCII tree diagrams into real directories and files
-- Smart depth detection for nested structures
-- Command-line interface with customizable input/output paths
-- Zero dependencies (besides Deno standard library)
-- Simple and lightweight
+-   Convert ASCII tree diagrams into real directories and files
+-   Smart depth detection for nested structures
+-   Command-line interface with customizable input/output paths
+-   Zero dependencies (besides Deno standard library)
+-   Simple and lightweight
 
 ## 📦 Installation
 
@@ -63,11 +63,7 @@ mv tree-shaker /usr/local/bin/
 ## 📦 Releases
 
 Download the latest binary for your platform:
-
-- [MacOS ARM64](../../releases/latest/download/tree-shaker-mac-arm64.tar.gz)
-- [MacOS Intel](../../releases/latest/download/tree-shaker-mac-x64.tar.gz)
-- [Linux](../../releases/latest/download/tree-shaker-linux.tar.gz)
-- [Windows](../../releases/latest/download/tree-shaker-windows.zip)
+https://github.com/peterbenoit/tree-shaker/releases
 
 ### 📝 Example Usage
 
