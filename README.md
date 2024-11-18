@@ -26,15 +26,21 @@ deno install --allow-read --allow-write https://raw.githubusercontent.com/peterb
 
 # Clone the repository
 
+```
 git clone https://github.com/peterbenoit/tree-shaker.git
+```
 
 # Change directory
 
+```
 cd tree-shaker
+```
 
 # Run directly
 
+```
 deno run --allow-read --allow-write super-shake.ts --input=./examples/tree.txt --output=./my-project
+```
 
 ### Option 3: Download Binary
 
@@ -42,11 +48,15 @@ Download the latest release from our releases page.
 
 # Make executable (macOS/Linux)
 
+```
 chmod +x tree-shaker
+```
 
 # Add to your PATH
 
+```
 mv tree-shaker /usr/local/bin/
+```
 
 ### 📝 Example Usage
 
@@ -65,7 +75,9 @@ my-project/
 
 Run tree-shaker:
 
+```
 tree-shaker --input=tree.txt --output=./my-project
+```
 
 ### 🤝 Contributing
 
