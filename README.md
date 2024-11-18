@@ -58,6 +58,15 @@ chmod +x tree-shaker
 mv tree-shaker /usr/local/bin/
 ```
 
+## 📦 Releases
+
+Download the latest binary for your platform:
+
+-   [MacOS ARM64](../../releases/latest/download/tree-shaker-mac-arm64.tar.gz)
+-   [MacOS Intel](../../releases/latest/download/tree-shaker-mac-x64.tar.gz)
+-   [Linux](../../releases/latest/download/tree-shaker-linux.tar.gz)
+-   [Windows](../../releases/latest/download/tree-shaker-windows.zip)
+
 ### 📝 Example Usage
 
 Create a tree file (tree.txt):
