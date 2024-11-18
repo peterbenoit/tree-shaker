@@ -1,56 +1,56 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - "v*"
+    push:
+        tags:
+            - 'v*'
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+    build:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [macos-latest, ubuntu-latest, windows-latest]
 
-    steps:
-      - uses: actions/checkout@v3
+        steps:
+            - uses: actions/checkout@v3
 
-      - name: Setup Deno
-        uses: denoland/setup-deno@v1
-        with:
-          deno-version: v1.x
+            - name: Setup Deno
+              uses: denoland/setup-deno@v1
+              with:
+                  deno-version: v1.x
 
-      - name: Build
-        run: |
-          # MacOS ARM64
-          if [ "${{ matrix.os }}" = "macos-latest" ]; then
-            deno compile --allow-read --allow-write --target aarch64-apple-darwin --output tree-shaker-mac-arm64 super-shake.ts
-            tar -czf tree-shaker-mac-arm64.tar.gz tree-shaker-mac-arm64
+            - name: Build MacOS
+              if: matrix.os == 'macos-latest'
+              shell: bash
+              run: |
+                  deno compile --allow-read --allow-write --target aarch64-apple-darwin --output tree-shaker-mac-arm64 super-shake.ts
+                  tar -czf tree-shaker-mac-arm64.tar.gz tree-shaker-mac-arm64
+                  deno compile --allow-read --allow-write --target x86_64-apple-darwin --output tree-shaker-mac-x64 super-shake.ts
+                  tar -czf tree-shaker-mac-x64.tar.gz tree-shaker-mac-x64
 
-            # MacOS Intel
-            deno compile --allow-read --allow-write --target x86_64-apple-darwin --output tree-shaker-mac-x64 super-shake.ts
-            tar -czf tree-shaker-mac-x64.tar.gz tree-shaker-mac-x64
-          fi
+            - name: Build Linux
+              if: matrix.os == 'ubuntu-latest'
+              shell: bash
+              run: |
+                  deno compile --allow-read --allow-write --target x86_64-unknown-linux-gnu --output tree-shaker-linux super-shake.ts
+                  tar -czf tree-shaker-linux.tar.gz tree-shaker-linux
 
-          # Linux
-          if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
-            deno compile --allow-read --allow-write --target x86_64-unknown-linux-gnu --output tree-shaker-linux super-shake.ts
-            tar -czf tree-shaker-linux.tar.gz tree-shaker-linux
-          fi
+            - name: Build Windows
+              if: matrix.os == 'windows-latest'
+              shell: pwsh
+              run: |
+                  deno compile --allow-read --allow-write --target x86_64-pc-windows-msvc --output tree-shaker-windows.exe super-shake.ts
+                  Compress-Archive -Path tree-shaker-windows.exe -DestinationPath tree-shaker-windows.zip
 
-          # Windows
-          if [ "${{ matrix.os }}" = "windows-latest" ]; then
-            deno compile --allow-read --allow-write --target x86_64-pc-windows-msvc --output tree-shaker-windows.exe super-shake.ts
-            7z a tree-shaker-windows.zip tree-shaker-windows.exe
-          fi
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            tree-shaker-mac-arm64.tar.gz
-            tree-shaker-mac-x64.tar.gz
-            tree-shaker-linux.tar.gz
-            tree-shaker-windows.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Upload Release Assets
+              uses: softprops/action-gh-release@v1
+              if: startsWith(github.ref, 'refs/tags/')
+              with:
+                  files: |
+                      tree-shaker-mac-arm64.tar.gz
+                      tree-shaker-mac-x64.tar.gz
+                      tree-shaker-linux.tar.gz
+                      tree-shaker-windows.zip
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
