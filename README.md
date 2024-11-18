@@ -65,6 +65,21 @@ mv tree-shaker /usr/local/bin/
 Download the latest binary for your platform:
 https://github.com/peterbenoit/tree-shaker/releases
 
+## ⚠️ Disclaimer
+
+**USE AT YOUR OWN RISK**
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+By using tree-shaker you acknowledge:
+
+-   This is experimental software
+-   Files and directories will be created on your system
+-   No responsibility is taken for lost or damaged files
+-   Always verify generated directory structures
+-   Back up important data before use
+-   Use in production environments at your own risk
+
 ### 📝 Example Usage
 
 Create a tree file (tree.txt):
@@ -94,4 +109,4 @@ tree-shaker --input=tree.txt --output=./my-project
 4. Push to the branch (git push origin feature/amazing-feature)
 5. Open a Pull Request
 
-📄 License MIT © [Peter Benoit]
+📄 License MIT © [Peter Benoit](https://www.peterbenoit.com)
