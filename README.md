@@ -3,15 +3,17 @@
 [![Deno](https://img.shields.io/badge/deno-1.37-green.svg)](https://deno.land)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Create file system structures from ASCII tree diagrams with style! tree-shaker is a Deno-powered CLI tool that transforms text-based directory trees into real file system structures.
+Create file system structures from ASCII tree diagrams with style! tree-shaker
+is a Deno-powered CLI tool that transforms text-based directory trees into real
+file system structures.
 
 ## 🚀 Features
 
--   Convert ASCII tree diagrams into real directories and files
--   Smart depth detection for nested structures
--   Command-line interface with customizable input/output paths
--   Zero dependencies (besides Deno standard library)
--   Simple and lightweight
+- Convert ASCII tree diagrams into real directories and files
+- Smart depth detection for nested structures
+- Command-line interface with customizable input/output paths
+- Zero dependencies (besides Deno standard library)
+- Simple and lightweight
 
 ## 📦 Installation
 
@@ -62,10 +64,10 @@ mv tree-shaker /usr/local/bin/
 
 Download the latest binary for your platform:
 
--   [MacOS ARM64](../../releases/latest/download/tree-shaker-mac-arm64.tar.gz)
--   [MacOS Intel](../../releases/latest/download/tree-shaker-mac-x64.tar.gz)
--   [Linux](../../releases/latest/download/tree-shaker-linux.tar.gz)
--   [Windows](../../releases/latest/download/tree-shaker-windows.zip)
+- [MacOS ARM64](../../releases/latest/download/tree-shaker-mac-arm64.tar.gz)
+- [MacOS Intel](../../releases/latest/download/tree-shaker-mac-x64.tar.gz)
+- [Linux](../../releases/latest/download/tree-shaker-linux.tar.gz)
+- [Windows](../../releases/latest/download/tree-shaker-windows.zip)
 
 ### 📝 Example Usage
 
@@ -96,5 +98,4 @@ tree-shaker --input=tree.txt --output=./my-project
 4. Push to the branch (git push origin feature/amazing-feature)
 5. Open a Pull Request
 
-📄 License
-MIT © [Peter Benoit]
+📄 License MIT © [Peter Benoit]
